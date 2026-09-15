@@ -1,0 +1,174 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: #24272b;
+  background: #fff;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #191c20;
+  line-height: 1.25;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 1.4rem 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+.position {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+a {
+  color: #165a96;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #103d65;
+  text-decoration-thickness: 0.12em;
+}
+
+a:focus-visible {
+  outline: 2px solid #165a96;
+  outline-offset: 4px;
+}
+
+.links,
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links li,
+.interests li {
+  display: flex;
+  align-items: baseline;
+}
+
+.links li:not(:last-child)::after,
+.interests li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.65rem;
+  color: #65707b;
+}
+
+section {
+  margin-top: 2.3rem;
+}
+
+.publications,
+.talks {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.publications li {
+  padding-left: 0.15rem;
+  margin-bottom: 1.3rem;
+}
+
+.publications li::marker {
+  color: #59616a;
+}
+
+.paper-title {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.talks li + li {
+  margin-top: 0.8rem;
+}
+
+.contact {
+  border-top: 1px solid #dde1e5;
+  padding-top: 1.6rem;
+}
+
+address {
+  font-style: normal;
+}
+
+@media (max-width: 36rem) {
+  body {
+    padding: 2rem 1.25rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  .interests {
+    display: block;
+  }
+
+  .interests li:not(:last-child)::after {
+    content: none;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .publications li,
+  .talks li {
+    break-inside: avoid;
+  }
+}
