@@ -1,0 +1,33 @@
+name: Sync CV
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-cv
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'coro-afk/coro-afk.github.io' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+          clean: false
+
+      - name: Copy the latest CV and open a draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CV_REPO_READ_TOKEN: ${{ secrets.CV_REPO_READ_TOKEN }}
+        run: python3 .github/scripts/sync_cv.py
